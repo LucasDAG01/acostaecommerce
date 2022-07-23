@@ -1,4 +1,22 @@
 .Navbar {
+  padding: 15px;
+  height: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgb(49, 172, 243);
+}
+
+.Navbar > .container > .row > .col > .nav-title {
+  margin: 15px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+}
+.Navbar > .container > .row > .col > .nav-items {
+  margin: 15px;
+  padding: 10px;
+  text-decoration: none;
 }

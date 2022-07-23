@@ -1,0 +1,12 @@
+.CartWidget > .container > .row > .col > .carrito {
+  margin: 15%;
+  padding: 1%;
+  object-fit: cover;
+  width: 60%;
+  height: 60%;
+}
+.CartWidget > .container > .row > .col > .cont {
+  margin: 15%;
+  padding: 1%;
+  align-content: center;
+}
