@@ -13,3 +13,5 @@ con http://localhost:3000 o / "va para home donde se detallan todos los producto
 /category/notebook "muesta la categoria notebook"
 /category/tablet "muesta la categoria tablet"
 /category/celular "muesta la categoria celular"
+
+En public/images/Grabacion01.gif esta el video corto de la pag.
