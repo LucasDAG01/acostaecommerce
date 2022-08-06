@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -11,20 +12,32 @@ const Navbar = () => {
           </div>
           <div className="col">
             <div className="nav-title">
-              <h1>TechLand</h1>
+              <Link to="/">TechLand</Link>
             </div>
           </div>
           <div className="col">
             <div className="nav-items">
-              <button style={{ color: "white", backgroundColor: "black" }}>
+              <Link
+                to="/category/notebook"
+                className="boton"
+                style={{ color: "white", backgroundColor: "black" }}
+              >
                 Notebooks
-              </button>
-              <button style={{ color: "white", backgroundColor: "black" }}>
+              </Link>
+              <Link
+                to="/category/tablet"
+                className="boton"
+                style={{ color: "white", backgroundColor: "black" }}
+              >
                 Tablets
-              </button>
-              <button style={{ color: "white", backgroundColor: "black" }}>
+              </Link>
+              <Link
+                to="/category/celular"
+                className="boton"
+                style={{ color: "white", backgroundColor: "black" }}
+              >
                 Celulares
-              </button>
+              </Link>
             </div>
           </div>
           <div className="col">

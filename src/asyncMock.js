@@ -11,7 +11,7 @@ const products = [
     id: "2",
     name: "samsung A2",
     price: 15000,
-    category: "celular",
+    category: "tablet",
     img: "https://images.unsplash.com/photo-1560617544-b4f287789e24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80",
     stock: 20,
     description: "descripcion : samsung A2",
@@ -30,6 +30,20 @@ export const getProducts = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);
-    }, 3000);
+    }, 400);
+  });
+};
+export const getProductsByCategory = (categoryId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.filter((prod) => prod.category === categoryId));
+    }, 500);
+  });
+};
+export const getProductsById = (id) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((prod) => prod.id === id));
+    }, 400);
   });
 };
