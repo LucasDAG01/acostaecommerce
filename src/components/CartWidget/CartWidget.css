@@ -1,12 +1,22 @@
-.CartWidget > .container > .row > .col > .carrito {
-  margin: 15%;
-  padding: 1%;
-  object-fit: cover;
-  width: 60%;
-  height: 60%;
+.CartWidget {
+  width: auto;
+  height: 20rem;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+  border-style: none;
+  cursor: pointer;
 }
-.CartWidget > .container > .row > .col > .cont {
-  margin: 15%;
-  padding: 1%;
-  align-content: center;
+
+.CartWidget > .CartImg {
+  margin-right: 10px;
+  float: right;
+  max-height: 10%;
+  width: auto;
+  object-fit: fill;
 }

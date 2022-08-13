@@ -1,26 +1,29 @@
 import { useState } from "react";
 
-const Counter = ({ stock, onAdd }) => {
-  const [count, setCount] = useState(1);
+const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
+  const [quantity, setQuantity] = useState(initial);
 
   const increment = () => {
-    if (count < stock) {
-      setCount(count + 1);
+    if (quantity < stock) {
+      setQuantity(quantity + 1);
     }
   };
-  const reduce = () => {
-    if (count > 1) {
-      setCount(count - 1);
+
+  const decrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
   return (
-    <div>
-      <h1>{count}</h1>
+    <div className="Counter">
+      <p>{quantity}</p>
+      <button onClick={decrement}>-</button>
       <button onClick={increment}>+</button>
-      <button onClick={reduce}>-</button>
-      <button onClick={() => onAdd(count)}>Agregar al carrito</button>
+      <button className="Button" onClick={() => onAdd(quantity)}>
+        Agregar al carrito
+      </button>
     </div>
   );
 };
 
-export default Counter;
+export default ItemCount;

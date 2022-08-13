@@ -6,30 +6,42 @@ import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     const asyncFunction = categoryId ? getProductsByCategory : getProducts;
 
     asyncFunction(categoryId)
-      .then((products) => {
-        setProducts(products);
+      .then((response) => {
+        setProducts(response);
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [categoryId]);
 
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <h1>{greeting}</h1>
+  if (loading) {
+    return <h1>Cargando productos...</h1>;
+  }
 
-          {<ItemList products={products} />}
-        </div>
-      </div>
+  if (products.length === 0) {
+    return categoryId ? (
+      <h1>No hay productos en nuestra categoria {categoryId}</h1>
+    ) : (
+      <h1>No hay productos disponibles</h1>
+    );
+  }
+
+  return (
+    <div onClick={() => console.log("click en itemlistcontainer")}>
+      <h1>{`${greeting} ${categoryId || ""}`}</h1>
+
+      <ItemList products={products} />
     </div>
   );
 };

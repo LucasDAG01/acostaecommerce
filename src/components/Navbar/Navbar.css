@@ -1,21 +1,21 @@
 .Navbar {
-  padding: 15px;
-  height: 80px;
+  padding: 10px;
+  max-height: 5rem;
   display: flex;
-  justify-content: space-between;
+  align-self: center;
+  justify-content: center;
   align-items: center;
-
   background: rgb(49, 172, 243);
 }
 
-.Navbar > .container > .row > .col > .nav-title {
+.Navbar > .nav-title {
   margin: 15px;
   padding: 10px;
   font-weight: 600;
   font-size: 20px;
   color: white;
 }
-.Navbar > .container > .row > .col > .nav-items {
+.Navbar > .nav-items {
   margin: 15px;
   padding: 10px;
   text-decoration: none;

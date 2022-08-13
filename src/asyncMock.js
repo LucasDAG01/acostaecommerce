@@ -5,7 +5,8 @@ const products = [
     price: 20500,
     category: "celular",
     img: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80",
-    description: "descripcion : samsung A1",
+    stock: 40,
+    description: "Pantalla 7, con 4g ...",
   },
   {
     id: "2",
@@ -14,7 +15,7 @@ const products = [
     category: "tablet",
     img: "https://images.unsplash.com/photo-1560617544-b4f287789e24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80",
     stock: 20,
-    description: "descripcion : samsung A2",
+    description: "Pantalla de 10, touch con protector ...",
   },
   {
     id: "3",
@@ -23,7 +24,7 @@ const products = [
     category: "notebook",
     img: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
     stock: 15,
-    description: "descripcion : samsung Ao10",
+    description: "Pantalla de 15 pulg. teclado con Ñ ...",
   },
 ];
 export const getProducts = () => {
