@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const Item = ({ id, name, img, price, stock }) => {
   const handleClick = (e) => {
     e.stopPropagation();
-    console.log("click en item");
   };
   return (
     <div>
