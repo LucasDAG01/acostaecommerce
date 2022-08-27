@@ -14,11 +14,11 @@ const CartItem = ({ id, name, quantity, price }) => {
       <p className="InfoCartItem">Cantidad: {quantity}</p>
       <p className="InfoCartItem">Precio x Unidad: ${price}</p>
       <p className="InfoCartItem">Subtotal: ${price * quantity}</p>
-      <footer className="ItemFooter">
+      <h3 className="ItemDelete">
         <button className="Button" onClick={() => handleRemove(id)}>
-          Borrar
+          Borrar Producto
         </button>
-      </footer>
+      </h3>
     </div>
   );
 };
