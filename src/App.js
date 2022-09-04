@@ -14,23 +14,28 @@ function App() {
       <CartContextProvider>
         <BrowserRouter>
           <NavBar />
-          <Routes>
-            <Route
-              path="/"
-              element={<ItemListContainer greeting="Productos" />}
-            />
-            <Route
-              path="/category/:categoryId"
-              element={<ItemListContainer />}
-            />
-            <Route
-              path="/detail/:productId"
-              element={<ItemDetailContainer />}
-            />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="*" element={<h1>404 NOT FOUND</h1>} />
-          </Routes>
+
+          <div className="container text-center">
+            <div className="row justify-content-center">
+              <Routes>
+                <Route
+                  path="/"
+                  element={<ItemListContainer greeting="Productos" />}
+                />
+                <Route
+                  path="/category/:categoryId"
+                  element={<ItemListContainer greeting="Listado" />}
+                />
+                <Route
+                  path="/detail/:productId"
+                  element={<ItemDetailContainer />}
+                />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="*" element={<h1>404 NOT FOUND</h1>} />
+              </Routes>
+            </div>
+          </div>
         </BrowserRouter>
       </CartContextProvider>
     </div>

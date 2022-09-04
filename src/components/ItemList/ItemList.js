@@ -2,13 +2,17 @@ import Item from "../Item/Item";
 
 const ItemList = ({ products }) => {
   return (
-    <div
-      className="ListGroup"
-      onClick={() => console.log("hice click en itemlist")}
-    >
-      {products.map((prod) => (
-        <Item key={prod.id} {...prod} />
-      ))}
+    <div className="album">
+      <div className="container text-center">
+        <div
+          className="row justify-content-center"
+          onClick={() => console.log("hice click en itemlist")}
+        >
+          {products.map((prod) => (
+            <Item key={prod.id} {...prod} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

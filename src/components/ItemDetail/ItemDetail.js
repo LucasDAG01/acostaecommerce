@@ -24,7 +24,10 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   const productQuantity = getProductQuantity(id);
 
   return (
-    <div className="card" style={{ width: "20rem" }}>
+    <div
+      className="card shadow-sm text-bg-dark mb-3"
+      style={{ width: "25rem" }}
+    >
       <header>
         <h2 className="card-title">{name}</h2>
       </header>
@@ -42,7 +45,9 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
               initial={productQuantity}
             />
           ) : (
-            <Link to="/cart">Finalizar compra</Link>
+            <Link to="/cart" className="btn btn-sm btn-danger">
+              Finalizar compra
+            </Link>
           )}
         </footer>
       </div>

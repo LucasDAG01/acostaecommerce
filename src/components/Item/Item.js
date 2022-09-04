@@ -1,3 +1,4 @@
+import "./Item.css";
 import { Link } from "react-router-dom";
 
 const Item = ({ id, name, img, price, stock }) => {
@@ -5,13 +6,25 @@ const Item = ({ id, name, img, price, stock }) => {
     e.stopPropagation();
   };
   return (
-    <div>
-      <div className="card" onClick={handleClick} style={{ width: "20rem" }}>
-        <img className="card-img-top img-fluid" src={img} alt={name} />
+    <div className="col-sm-6 col-md-4 ">
+      <div
+        className="card shadow-sm text-bg-dark mb-3"
+        onClick={handleClick}
+        style={{ width: "18rem" }}
+      >
+        <img
+          className="bd-placeholder-img card-img-top"
+          width="100%"
+          height="350"
+          src={img}
+          alt={name}
+        />
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
           <h3 className="card-text">Precio: ${price}</h3>
-          <Link to={`/detail/${id}`}>Ver detalle</Link>
+          <Link to={`/detail/${id}`} class="btn btn-sm btn-secondary">
+            Ver detalle
+          </Link>
           <h3 className="card-text">Stock: {stock}</h3>
         </div>
       </div>
