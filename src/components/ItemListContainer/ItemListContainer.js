@@ -2,45 +2,29 @@ import { useState, useEffect } from "react";
 
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-import { getDocs, collection, query, where } from "firebase/firestore";
-import { db } from "../../services/firebase";
+import { getProducts } from "../../services/firebase/firestore";
+import { useAsync } from "../../hooks/useAsync";
 
 const ItemListContainer = ({ greeting }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
 
-  useEffect(() => {
-    setLoading(true);
+  const getProductsFromFirestore = () => getProducts(categoryId);
 
-    const collectionRef = !categoryId
-      ? collection(db, "products")
-      : //busqueda en db (filtrado)
-        query(collection(db, "products"), where("category", "==", categoryId));
+  const { data, error, isLoading } = useAsync(getProductsFromFirestore, [
+    categoryId,
+  ]);
 
-    getDocs(collectionRef)
-      .then((response) => {
-        const productsAdapted = response.docs.map((doc) => {
-          const data = doc.data();
-          return { id: doc.id, ...data };
-        });
-        setProducts(productsAdapted);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [categoryId]);
-
-  if (loading) {
+  if (isLoading) {
     return <h1>Cargando productos...</h1>;
   }
 
-  if (products.length === 0) {
+  if (error) {
+    return <h1>Hubo un error</h1>;
+  }
+
+  if (data.length === 0) {
     return categoryId ? (
-      <h1>No hay productos en nuestra categoria {categoryId}</h1>
+      <h1>No hay productos en esta categoria {categoryId}</h1>
     ) : (
       <h1>No hay productos disponibles</h1>
     );
@@ -50,7 +34,7 @@ const ItemListContainer = ({ greeting }) => {
     <div onClick={() => console.log("click en itemlistcontainer")}>
       <h1>{`${greeting} ${categoryId || ""}`}</h1>
 
-      <ItemList products={products} />
+      <ItemList products={data} />
     </div>
   );
 };
